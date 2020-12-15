@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EmployeePayrollMVC.Models.Common;
+using EmployeePayrollMVC.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,13 @@ namespace EmployeePayrollMVC.Controllers
 {
     public class EmployeeController : Controller
     {
+        EmployeeRepository employeeRepository = new EmployeeRepository();
+
         // GET: Employee
         public ActionResult Index()
         {
-            return View();
+            List<EmployeeViewModel> list = employeeRepository.GetEmployees();
+            return View(list);
         }
 
         // GET: Employee
