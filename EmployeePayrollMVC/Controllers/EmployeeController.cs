@@ -57,5 +57,22 @@ namespace EmployeePayrollMVC.Controllers
                 return View("Edit");
 
         }
+        // Controller method to delete the details of an employee from the database -- When call is passed here note that delete button is clicked
+        public ActionResult Delete(Employee model)
+        {
+            Employee emp = employeeRepository.GetEmployee(model.EmpId);
+
+            return View(emp);
+        }
+        // Controller method to delete the details of an employee from the database -- When call is passed here the view is verifying whether delete call is sure or not
+        [HttpPost]
+        public ActionResult DeleteEmployee(Employee model)
+        {
+            int result = employeeRepository.DeleteEmployee(model.EmpId);
+            if (result != 0)
+                return RedirectToAction("Index");
+            else
+                return View("Delete", result);
+        }
     }
 }
