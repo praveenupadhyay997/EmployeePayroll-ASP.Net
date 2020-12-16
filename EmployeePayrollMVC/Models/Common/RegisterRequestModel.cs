@@ -10,8 +10,8 @@ namespace EmployeePayrollMVC.Models.Common
     {
         public int EmpId { get; set; }
 
-        //[Required]
-        //[StringLength(20,ErrorMessage ="Name max length is 20 characters")]
+        [Required]
+        [StringLength(20,ErrorMessage ="Name max length is 20 characters")]
         public string Name { get; set; }
 
         [Required]

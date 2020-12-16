@@ -14,6 +14,7 @@ namespace EmployeePayrollMVC.Repository
         {
             try
             {
+                /// Query to get a unified data across multiple table -- Using LINQ
                 List<EmployeeViewModel> list = (from e in dbContext.Employees
                                                 join d in dbContext.Departments on e.DepartmentId equals d.DeptId
                                                 join s in dbContext.Salaries on e.SalaryId equals s.SalaryId
@@ -71,6 +72,41 @@ namespace EmployeePayrollMVC.Repository
             {
                 throw e;
             }
+        }
+        public Employee GetEmployee(int id)
+        {
+            try
+            {
+                Employee list = dbContext.Employees.Where(x => x.EmpId == id).SingleOrDefault();
+
+                return list;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public int Update(Employee model)
+        {
+            var data = dbContext.Employees.FirstOrDefault(x => x.EmpId == model.EmpId);
+
+            // Checking if any such record exist  
+            if (data != null)
+            {
+                data.EmpId = model.EmpId;
+                data.Name = model.Name;
+                data.Gender = model.Gender;
+                data.DepartmentId = model.DepartmentId;
+                data.Department = model.Department;
+                data.SalaryId = model.SalaryId;
+                data.Salary = model.Salary;
+                data.StartDate = model.StartDate;
+                data.Description = model.Description;
+                return dbContext.SaveChanges();
+            }
+            else
+                return 0;
+
         }
     }
 }
