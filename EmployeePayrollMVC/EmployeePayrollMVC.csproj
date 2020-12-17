@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Common\DateRangeAttribute.cs" />
     <Compile Include="Models\Common\EmployeeViewModel.cs" />
     <Compile Include="Models\Common\RegisterRequestModel.cs" />
     <Compile Include="Models\Department.cs" />

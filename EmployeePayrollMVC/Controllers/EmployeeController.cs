@@ -24,16 +24,14 @@ namespace EmployeePayrollMVC.Controllers
         {
             return View();
         }
-
         [HttpPost]
-        public ActionResult RegisterEmployee(RegisterRequestModel employee)
+        public ActionResult Register(RegisterRequestModel employee)
         {
             bool result = false;
             if (ModelState.IsValid)
             {
                 result = employeeRepository.RegisterEmployee(employee);
             }
-            ModelState.Clear();
 
             if (result == true)
             {
