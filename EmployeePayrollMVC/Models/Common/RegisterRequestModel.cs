@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace EmployeePayrollMVC.Models.Common
 {
@@ -25,10 +22,8 @@ namespace EmployeePayrollMVC.Models.Common
         public string SalaryId { get; set; }
 
         [Required]
-        //[Range(typeof(DateTime), "01/01/2000", DateTime.Now.ToShortDateString())]
         //[Range(typeof(DateTime), "01/01/2000", "10/12/2020")]
-        //[DateRange("01/01/2000")]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
+        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MMM/yyyy}")]
         public DateTime StartDate { get; set; }
 
         public string Description { get; set; }

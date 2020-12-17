@@ -108,5 +108,24 @@ namespace EmployeePayrollMVC.Repository
                 return 0;
 
         }
+        public int DeleteEmployee(int id)
+        {
+            try
+            {
+                Employee data = dbContext.Employees.Where(x => x.EmpId == id).SingleOrDefault();
+
+                if (data != null)
+                {
+                    dbContext.Employees.Remove(data);
+                    return dbContext.SaveChanges();
+                }
+                else
+                    return 0;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }
