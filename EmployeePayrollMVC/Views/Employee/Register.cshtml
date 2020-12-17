@@ -86,10 +86,11 @@
                 @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
             </div>
             <div class="btnColumn">
-                <button type="submit" class="btn btn-primary" @*onclick="return validate()"*@>Submit</button>
+                <button type="submit" class="btn btn-primary" @*onclick="validate()"*@>Submit</button>
                 <button type="reset" class="btn bg-danger">Reset</button>
                 <a href="@Url.Action("Index", "Employee")" class="btn btn-success">Employee List</a>
             </div>
+            @ViewBag.RegisterMessage
         </div>
     </body>
     <script>
@@ -97,8 +98,9 @@
         name.addEventListener("input", function (event) {
             if (name.value.length == 0) {
                 name.setCustomValidity("Please enter Name");
-            } else {
-                email.setCustomValidity("");
+            }
+            else{
+                name.setCustomValidity("");
             }
         });
         function validate() {

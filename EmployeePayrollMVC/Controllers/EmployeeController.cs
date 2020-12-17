@@ -35,6 +35,7 @@ namespace EmployeePayrollMVC.Controllers
 
             if (result == true)
             {
+                ViewBag.RegisterMessage = "Registation Successful...";
                 return RedirectToAction("Index");
             }
             return View(employee);
