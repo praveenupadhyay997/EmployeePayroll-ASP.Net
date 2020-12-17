@@ -8,10 +8,6 @@ namespace EmployeePayrollMVC.Models
 {
     public class EmployeeContext : DbContext
     {
-        public EmployeeContext() : base("DefaultConnection")
-        {
-        }
-
         public DbSet<Employee> Employees { get; set; }
 
         public DbSet<Department> Departments { get; set; }

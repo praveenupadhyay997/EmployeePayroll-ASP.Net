@@ -48,10 +48,10 @@
             </tr>
 
             @foreach (var item in Model)
-            {
+             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Name);
+                        @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Gender)
@@ -70,7 +70,7 @@
                         <a href="@Url.Action("Delete",new { item.EmpId })" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
-       }
+             }
 
         </table>
     </div>
